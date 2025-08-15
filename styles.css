@@ -160,7 +160,7 @@ main {
 }
 
 .about img {
-    width: 100%;
+    width: 80%;
     border-radius: 8px;
 }
 
@@ -235,12 +235,11 @@ main {
     font-weight: 500;
 }
 
-/* ========== Contact Page Side-by-Side Layout ========== */
+/* ========== Contact Page (Fixed) ========== */
 .contact {
     padding: 3rem 5%;
     max-width: 1100px;
     margin: auto;
-    flex: 1;
 }
 
 .contact h1 {
@@ -261,8 +260,8 @@ main {
     border-radius: 8px;
     box-shadow: 0 3px 10px rgba(0,0,0,0.05);
     border: 1px solid #ddd;
-    flex: 1 1 45%;
-    min-width: 320px;
+    flex: 1 1 48%; /* was 45% — gives them more room */
+    min-width: 380px; /* was 320px — makes them less cramped */
 }
 
 .contact-box h2, .message-box h2 {
@@ -284,32 +283,15 @@ main {
     text-decoration: underline;
 }
 
-.message-box form {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-}
+/* Responsive Contact */
+@media (max-width: 768px) {
+    .contact-container {
+        flex-direction: column;
+    }
 
-.message-box input,
-.message-box textarea {
-    padding: 1rem;
-    font-size: 1rem;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-}
-
-.message-box button {
-    font-size: 1.1rem;
-    padding: 1rem;
-    background-color: var(--primary-color);
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.message-box button:hover {
-    background-color: var(--primary-hover);
+    .contact-box, .message-box {
+        flex: 1 1 100%;
+    }
 }
 
 /* ========== Footer ========== */
@@ -318,9 +300,10 @@ footer {
     color: white;
     text-align: center;
     padding: 1rem;
+    margin-top: auto;
 }
 
-/* ========== Responsive Design ========== */
+/* ========== Responsive Navbar ========== */
 @media (max-width: 900px) {
     .about {
         grid-template-columns: 1fr;
